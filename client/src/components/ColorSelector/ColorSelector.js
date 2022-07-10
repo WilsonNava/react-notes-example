@@ -6,13 +6,16 @@ const ColorSelector = ({ setColor }) => {
   };
 
   return (
-    <select onChange={handleChange}>
-      {COLORS.map((color) => (
-        <option key={color} value={color}>
-          {color}
-        </option>
-      ))}
-    </select>
+    <>
+      <h2>Select the border color</h2>
+      <select onChange={handleChange}>
+        {COLORS.map((color) => (
+          <option key={color} value={color}>
+            {color}
+          </option>
+        ))}
+      </select>
+    </>
   );
 };
 
