@@ -1,11 +1,11 @@
 const COLORS = ["black", "red", "yellow", "blue"];
 
 const ColorSelector = ({ setColor }) => {
-  const handleChange = (e) => {
-    console.log(e);
 
+  const handleChange = (e) => {
     setColor(e.target.value);
   };
+
   return (
     <select onChange={handleChange}>
       {COLORS.map((color) => (

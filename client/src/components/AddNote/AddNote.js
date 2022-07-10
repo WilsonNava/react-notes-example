@@ -23,7 +23,7 @@ const AddNote = () => {
     <>
       <h2>Add new note</h2>
       <input type="text" value={text} onChange={handleTextChange} />
-      <button onClick={add}>Add</button>
+      <button onClick={add}>Add note</button>
       {error && <span>{error}</span>}
     </>
   );

@@ -46,6 +46,35 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.put("/", async (req, res) => {
+  const { id, text } = req.body;
+  if (!id || !text) {
+    return res.status(400).send({
+      error: "id and text are required to update a note",
+    });
+  }
+
+  try {
+    const note = await Note.findOne({ id });
+
+    if (note) {
+      await Note.findOneAndUpdate({ id }, { text });
+
+      return res.status(200).send({
+        message: "Note was update",
+      });
+    } else {
+      return res.status(404).send({
+        error: "Note was not found",
+      });
+    }
+  } catch (error) {
+    return res.status(400).send({
+      error,
+    });
+  }
+});
+
 router.delete("/:id", async (req, res) => {
   const id = Number(req.params.id);
   if (isNaN(id)) {
@@ -53,7 +82,6 @@ router.delete("/:id", async (req, res) => {
       error: "id is not valid",
     });
   }
-
 
   try {
     const note = await Note.findOne({ id });

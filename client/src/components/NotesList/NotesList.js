@@ -4,16 +4,24 @@ import NoteRow from "../NoteRow";
 import ColorSelector from "../ColorSelector";
 
 const NotesList = () => {
-  const { notes } = useContext(NotesContext);
+  const { isLoading, notes } = useContext(NotesContext);
   const [color, setColor] = useState("");
 
+
+  if(isLoading) {
+      return <span>Loading....</span>
+  }
   return (
     <>
-      <ColorSelector setColor={setColor}/>
+      <ColorSelector setColor={setColor} />
       <ul>
         {notes.map((note) => (
-          <NoteRow note={note} borderColor={color}/>
+          <NoteRow note={note} borderColor={color} />
         ))}
+
+        {notes.length === 0 && (
+          <span>The are not notes, let's create the first one!</span>
+        )}
       </ul>
     </>
   );
