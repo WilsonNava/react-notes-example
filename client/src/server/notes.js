@@ -11,14 +11,18 @@ class Notes {
     return this._client.get("/");
   }
 
-  create(data) {
+  create(text) {
     return this._client.post("/", {
-      text: data,
+      text,
     });
   }
 
   delete(id) {
     return this._client.delete(`/${id}`);
+  }
+
+  update(data) {
+      return this._client.put("/", data)
   }
 }
 

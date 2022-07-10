@@ -16,7 +16,7 @@ const NotesList = () => {
       <ColorSelector setColor={setColor} />
       <ul>
         {notes.map((note) => (
-          <NoteRow note={note} borderColor={color} />
+          <NoteRow key={note.id} note={note} borderColor={color} />
         ))}
 
         {notes.length === 0 && (

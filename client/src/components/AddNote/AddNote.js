@@ -17,6 +17,7 @@ const AddNote = () => {
     }
     setError("");
     addNote(text);
+    setText("");
   };
 
   return (

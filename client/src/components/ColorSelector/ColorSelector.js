@@ -1,7 +1,6 @@
 const COLORS = ["black", "red", "yellow", "blue"];
 
 const ColorSelector = ({ setColor }) => {
-
   const handleChange = (e) => {
     setColor(e.target.value);
   };
@@ -9,7 +8,9 @@ const ColorSelector = ({ setColor }) => {
   return (
     <select onChange={handleChange}>
       {COLORS.map((color) => (
-        <option value={color}>{color}</option>
+        <option key={color} value={color}>
+          {color}
+        </option>
       ))}
     </select>
   );
