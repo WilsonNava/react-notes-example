@@ -1,0 +1,13 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    &Element {
+        border: 1px solid;
+        width: 25%;
+        height: 50px;
+    }
+
+    @media (max-width: 360px) {
+       flex-direction: column;
+    }
+}

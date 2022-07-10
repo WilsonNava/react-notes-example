@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { NotesContext } from "../../contexts/notesContext";
 import NoteRow from "../NoteRow";
 import ColorSelector from "../ColorSelector";
+import styles from "./styles.module.scss";
 
 const NotesList = () => {
   const { isLoading, notes } = useContext(NotesContext);
@@ -12,9 +13,9 @@ const NotesList = () => {
       return <span>Loading....</span>
   }
   return (
-    <>
+    <div >
       <ColorSelector setColor={setColor} />
-      <ul>
+      <ul className={styles.notesList}>
         {notes.map((note) => (
           <NoteRow key={note.id} note={note} borderColor={color} />
         ))}
@@ -23,7 +24,7 @@ const NotesList = () => {
           <span>The are not notes, let's create the first one!</span>
         )}
       </ul>
-    </>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import NotesList from "./components/NotesList";
 import AddNote from "./components/AddNote";
 import { NotesProvider } from "./contexts/notesContext";
+import Grid from "./components/Grid";
 
 const App = () => {
   return (
@@ -10,6 +11,8 @@ const App = () => {
         <AddNote />
         <NotesList />
       </NotesProvider>
+
+      <Grid />
     </div>
   );
 };
