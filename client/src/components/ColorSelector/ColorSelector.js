@@ -7,7 +7,8 @@ const ColorSelector = ({ setColor }) => {
 
   return (
     <>
-      <h2>Select the border color</h2>
+      <b>Select the border color</b>
+      <br />
       <select onChange={handleChange}>
         {COLORS.map((color) => (
           <option key={color} value={color}>

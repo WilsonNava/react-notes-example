@@ -8,21 +8,26 @@ const NotesList = () => {
   const { isLoading, notes } = useContext(NotesContext);
   const [color, setColor] = useState("");
 
-
-  if(isLoading) {
-      return <span>Loading....</span>
+  if (isLoading) {
+    return <span>Loading....</span>;
   }
+
+  if (notes.length === 0) {
+    return (
+      <div className={styles.noNotes}>
+        <b>The are not notes, let's create the first one!</b>
+      </div>
+    );
+  }
+
   return (
-    <div >
+    <div>
+      <h2>My notes</h2>
       <ColorSelector setColor={setColor} />
       <ul className={styles.notesList}>
         {notes.map((note) => (
           <NoteRow key={note.id} note={note} borderColor={color} />
         ))}
-
-        {notes.length === 0 && (
-          <span>The are not notes, let's create the first one!</span>
-        )}
       </ul>
     </div>
   );
