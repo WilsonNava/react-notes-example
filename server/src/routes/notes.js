@@ -35,7 +35,7 @@ router.post("/", async (req, res) => {
       ...req.body,
       id: (await findLatestNote()) + 1,
     });
-    console.log;
+
     return res.status(201).send({
       data: result,
     });
@@ -53,7 +53,7 @@ router.delete("/:id", async (req, res) => {
       error: "id is not valid",
     });
   }
-  console.log(id);
+
 
   try {
     const note = await Note.findOne({ id });

@@ -23,7 +23,7 @@ const connect = async () => {
     });
     console.log("Connection to DB stablished");
   } catch (error) {
-    console.error(error);
+    throw new Error("Cannot connect to DB")
   }
 };
 app.listen(PORT, async () => {

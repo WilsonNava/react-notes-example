@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { NotesContext } from "../../contexts/notesContext";
+import styles from "./styles.module.scss";
 
 const NoteRow = ({ note: { text, id } }) => {
   const { deleteNote } = useContext(NotesContext);
@@ -9,7 +10,7 @@ const NoteRow = ({ note: { text, id } }) => {
   };
 
   return (
-    <li key={id}>
+    <li key={id} className={styles.noteRow}>
       <span>{text}</span>
       <button onClick={handleDelete}>delete</button>
     </li>
